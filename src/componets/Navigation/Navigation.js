@@ -14,8 +14,10 @@ const Navigation = () => {
   };
 
   return (
-    <header className={classes.Navigation}>
-      <SearchBar submit={handleSubmit} change={handleTerm} term={term} />
+    <header className={classes.Header}>
+      <nav className={classes.Navigation}>
+        <SearchBar submit={handleSubmit} change={handleTerm} term={term} />
+      </nav>
     </header>
   );
 };

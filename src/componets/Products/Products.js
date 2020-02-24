@@ -1,5 +1,5 @@
 import React from 'react';
-import Product from './Product/Product'
+import Product from './Product/Product';
 
 const Products = () => {
   const data = [
@@ -21,12 +21,12 @@ const Products = () => {
   ];
 
   return (
-      {
-          data.map(()=> <Product/>)
-      }
-  )
+    <div>
+      {data.map(() => (
+        <Product />
+      ))}
+    </div>
+  );
 };
 
 export default Products;
-
-

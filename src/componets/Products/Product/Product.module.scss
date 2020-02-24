@@ -1,0 +1,18 @@
+.Product {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 2rem;
+
+    img {
+        margin-right: 1rem;
+    }
+    
+    .ProductInformationTop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p{
+            align-self: flex-end;
+        }
+    }
+}

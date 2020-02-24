@@ -2,9 +2,11 @@
   display: flex;
   flex-flow: row;
   justify-content: center;
+  align-items: center;
   form {
+    position: relative;
     box-sizing: border-box;
-    width: 60%;
+    width: 100%;
     input,
     button {
       height: 30px;
@@ -17,12 +19,12 @@
     }
   }
   input {
-    width: 80%;
+    width: inherit
   }
   button {
     width: 30px;
-    background-color: gray;
-    color: white;
-    flex-grow: 1;
+    position: absolute;
+    right: 0px;
+    background-color: red;
   }
 }

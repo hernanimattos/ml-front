@@ -1,6 +1,15 @@
-.Navigation {
+.Header {
     background-color: yellow;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0; 
+}
+
+.Navigation {
     padding-top: 1rem;
     padding-bottom: 1rem;
-
+    position: relative;
+    margin: 0 auto;
+    max-width: 1200px;
 }
