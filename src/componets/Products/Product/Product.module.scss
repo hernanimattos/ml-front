@@ -2,17 +2,30 @@
     display: flex;
     flex-flow: row wrap;
     margin-bottom: 2rem;
+    & > * {
+        flex: 1;
+    }
 
     img {
         margin-right: 1rem;
+    }
+    @media (max-width: 768px) {
+        flex-flow: column;
+        img {
+            width: 100%;
+        }
+        
     }
     
     .ProductInformationTop {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        max-width: 360px;
+        margin: 0 auto;
         p{
             align-self: flex-end;
         }
+
     }
 }
