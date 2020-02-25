@@ -7,9 +7,7 @@ import { searchProduct } from '../../store/products/product.actions';
 import { connect } from 'react-redux';
 
 const Search = props => {
-  console.log(props, 'kkkk=>>>>');
   const [term, setTerm] = useState('');
-
   const { productsData = {} } = props || {};
   const { items = [] } = productsData;
   const handleSubmit = e => {

@@ -20,12 +20,16 @@
     }
   }
   input {
-    width: inherit
+    width: inherit;
+    padding: 0.5rem;
   }
   button {
     width: 30px;
     position: absolute;
     right: 0px;
     background-color: #e4e0e0;
+  }
+  img {
+    margin-right: 1rem;
   }
 }

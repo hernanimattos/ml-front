@@ -14,6 +14,7 @@ export const getProductsByTermSearch = term => {
               currency
               amount
               decimals
+              value
             }
             condition
             free_shipping
