@@ -9,12 +9,12 @@ const Products = () => {
       description: 'produto um dalskdnalsnd'
     },
     {
-      title: 'prod 1',
+      title: 'prod 2',
       value: '1234,00',
       description: 'produto um dalskdnalsnd'
     },
     {
-      title: 'prod 1',
+      title: 'prod 3',
       value: '1234,00',
       description: 'produto um dalskdnalsnd'
     }
@@ -22,8 +22,8 @@ const Products = () => {
 
   return (
     <div>
-      {data.map(() => (
-        <Product />
+      {data.map(e => (
+        <Product key={e.title} />
       ))}
     </div>
   );

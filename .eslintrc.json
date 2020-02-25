@@ -22,7 +22,7 @@
         "react"
     ],
     "rules": {
-        "quotes": [
+        "quotes": [2,
             "single"
         ]
     }
