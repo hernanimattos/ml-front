@@ -1,7 +1,7 @@
 import { SEARCH_PRODUCTS } from './product.actions';
 
 const initialState = {
-  products: {}
+  productsData: {}
 };
 
 const productReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const productReducer = (state = initialState, action) => {
     case SEARCH_PRODUCTS:
       return {
         ...state,
-        products: action.products
+        productsData: action.productsData
       };
 
     default:

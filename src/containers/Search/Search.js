@@ -7,7 +7,11 @@ import { searchProduct } from '../../store/products/product.actions';
 import { connect } from 'react-redux';
 
 const Search = props => {
+  console.log(props, 'kkkk=>>>>');
   const [term, setTerm] = useState('');
+
+  const { productsData = {} } = props || {};
+  const { items = [] } = productsData;
   const handleSubmit = e => {
     e.preventDefault();
     return props.dispatch(searchProduct(term));
@@ -20,14 +24,14 @@ const Search = props => {
   return (
     <Aux>
       <Navigation submit={handleSubmit} change={handleTerm} term={term} />
-      <Products prducts={props.products} />
+      <Products products={items.length > 0 ? items : []} />
     </Aux>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    products: state.products
+    productsData: state.productsData
   };
 };
 
