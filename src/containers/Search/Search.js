@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Products from '../../componets/Products/Products';
+import Product from '../../componets/Products/Product/Product';
 import Navigation from '../../componets/Navigation/Navigation';
-import Aux from '../../hoc/Aux';
 import { searchProduct } from '../../store/products/product.actions';
-
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  withRouter,
+  Redirect,
+  useHistory
+} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const Search = props => {
+  const history = useHistory();
   const [term, setTerm] = useState('');
+  const [search, setSearch] = useState(false);
   const { productsData = {} } = props || {};
   const { items = [] } = productsData;
+
   const handleSubmit = e => {
     e.preventDefault();
-    return props.dispatch(searchProduct(term));
+    props.dispatch(searchProduct(term));
+    history.push('/');
   };
 
   const handleTerm = e => {
@@ -20,10 +31,18 @@ const Search = props => {
   };
 
   return (
-    <Aux>
+    <BrowserRouter history={history}>
       <Navigation submit={handleSubmit} change={handleTerm} term={term} />
-      <Products products={items.length > 0 ? items : []} />
-    </Aux>
+      {/* <Switch> */}
+      <Route
+        path="/"
+        exact
+        component={() => <Products products={items.length > 0 ? items : []} />}
+      />
+      <Route path="/produto/:id" component={() => <Product />} />
+      {/* </Switch> */}
+      {/* {term ? <Redirect from="/produto/:id" to="/" /> : null} */}
+    </BrowserRouter>
   );
 };
 
@@ -33,4 +52,5 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Search);
+// export default withRouter(Product);
+export default withRouter(connect(mapStateToProps)(Search));

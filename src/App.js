@@ -6,17 +6,24 @@ import React from 'react';
 import Layout from './layout/Layout';
 import Aux from './hoc/Aux';
 import Search from './containers/Search/Search';
+import {
+  BrowserRouter
+  // Switch,
+  // Route,
+  // Redirect,
+  // useHistory
+} from 'react-router-dom';
 
 const store = createStore(productReducer, applyMiddleware(reduxThunk));
 
 function App() {
   return (
     <Provider store={store}>
-      <Aux>
+      <BrowserRouter>
         <Layout>
           <Search />
         </Layout>
-      </Aux>
+      </BrowserRouter>
     </Provider>
   );
 }
