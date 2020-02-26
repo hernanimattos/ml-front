@@ -1,6 +1,6 @@
 .Product {
-  //   display: flex;
-  //   flex-flow: row wrap;
+  background-color: #fff;
+  padding: 2rem;
   margin-bottom: 2rem;
   & > {
     display: inline-flex;
@@ -15,30 +15,33 @@
     width: 100%;
   }
   @media (max-width: 768px) {
+    display: flex;
     flex-flow: column;
     img {
       width: 100%;
     }
   }
 
-  .ProductInformationTop {
-    margin: 0 auto;
-    p {
-      align-self: flex-end;
-    }
-    &:after {
-      content: '';
-      display: table;
-      clear: both;
-    }
-  }
+ 
   &:after {
     content: '';
     display: table;
     clear: both;
   }
   .ContainerDetails {
-    // float: left;
+    display: flex;
+     & > {
+      flex: 1 1 1;
+     }
+  }
+  .ProductInformationTop {
+    margin: 0 auto;
+    p {
+      align-self: flex-end;
+    }
+    & > {
+      flex: 1 1 1;
+     }
   }
   .AlignLeft {
     float: left;
@@ -46,7 +49,9 @@
   .AlignRight {
     float: right;
   }
-
-  .Description {
+  .clear:after {
+    content: '';
+    display: table;
+    clear: both;
   }
 }

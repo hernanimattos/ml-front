@@ -10,12 +10,14 @@ const Product = props => {
       </div>
       <div className={classes.ContainerDetails}>
         <div className={classes.ProductInformationTop}>
-          <h3 className={classes.AlignLeft}>{props.value}</h3>
-          <p className={classes.AlignRight}>Local</p>
-        </div>
-        <div className={classes.Description}>
-          <h4>{props.title}</h4>
-          <div> {props.description}</div>
+          <div className={classes.clear}>
+            <h3 className={classes.AlignLeft}>{props.value}</h3>
+            <p className={classes.AlignRight}>Local</p>
+          </div>
+          <div>
+            <h4>{props.title}</h4>
+            <div> {props.description}</div>
+          </div>
         </div>
       </div>
     </article>
