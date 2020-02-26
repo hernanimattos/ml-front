@@ -5,14 +5,17 @@ import { productReducer } from './store';
 import React from 'react';
 import Layout from './layout/Layout';
 import Search from './containers/Search/Search';
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 const store = createStore(productReducer, applyMiddleware(reduxThunk));
 
 function App() {
   return (
     <Provider store={store}>
       <Layout>
-        <Search />
+        <Router>
+          <Route path="/" component={Search} />
+        </Router>
+        {/* <Search /> */}
       </Layout>
     </Provider>
   );

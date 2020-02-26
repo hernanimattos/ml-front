@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Products from '../componets/Products/Products';
 import Product from '../componets/Products/Product/Product';
@@ -6,12 +6,18 @@ import {
   BrowserRouter as Router,
   Route,
   Redirect,
-  Switch
+  Switch,
+  withRouter
 } from 'react-router-dom';
 
 const MainNAvigation = props => {
   const { productsData = {} } = props || {};
   const { items = [] } = productsData;
+
+  props.history.listen((location, action) => {
+    // location is an object like window.location
+    console.log(action, location.pathname, location.state);
+  });
 
   return (
     <Router>
@@ -24,8 +30,9 @@ const MainNAvigation = props => {
         <Route exact path={'/produto/:id'} component={() => <Product />} />
       </Switch>
 
-      {items && (
+      {props.searchInit && (
         <Redirect
+          from="/produto/:id"
           to={{
             pathname: '/'
           }}
@@ -35,4 +42,4 @@ const MainNAvigation = props => {
   );
 };
 
-export default connect(null, null)(MainNAvigation);
+export default withRouter(connect(null, null)(MainNAvigation));

@@ -3,7 +3,6 @@ import classes from './Product.module.scss';
 import { Link } from 'react-router-dom';
 
 const Product = props => {
-  console.log(props);
   return (
     <Link
       to={{

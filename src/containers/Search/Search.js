@@ -7,15 +7,17 @@ import MainRouter from '../../mainRouter/index';
 
 const Search = props => {
   const [term, setTerm] = useState('');
-  // const { productsData = {} } = props || {};
-  // const { items = [] } = productsData;
+  const [searchInit, setSearchInit] = useState(null);
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.dispatch(searchProduct(term));
+    setSearchInit(true);
+    props.history.push('/');
+    props.dispatch(searchProduct(term, searchInit));
   };
 
   const handleTerm = e => {
+    setSearchInit(false);
     setTerm(e.target.value);
   };
 
@@ -29,7 +31,8 @@ const Search = props => {
 
 const mapStateToProps = state => {
   return {
-    productsData: state.productsData
+    productsData: state.productsData,
+    searchInit: state.searchInit
   };
 };
 
