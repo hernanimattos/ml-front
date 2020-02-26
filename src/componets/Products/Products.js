@@ -6,7 +6,13 @@ const Products = props => {
     <div>
       {props.products &&
         props.products.map(e => (
-          <Product key={e.id} img={e.picture} title={e.title} />
+          <Product
+            key={e.id}
+            img={e.picture}
+            title={e.title}
+            description={e.description}
+            value={e.price.value}
+          />
         ))}
     </div>
   );

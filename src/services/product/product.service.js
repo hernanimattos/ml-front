@@ -11,11 +11,12 @@ export const getProductsByTermSearch = term => {
             id
             title
             price {
+              value
               currency
               amount
               decimals
-              value
             }
+            description
             condition
             free_shipping
             picture
