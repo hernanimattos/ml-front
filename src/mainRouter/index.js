@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Products from '../containers/Products/Products';
-import Product from '../componets/Product/Product';
+import ProductPage from '../containers/ProductPage/ProductPage';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 const MainNAvigation = props => {
@@ -15,7 +15,10 @@ const MainNAvigation = props => {
         path={'/'}
         component={() => <Products products={items} {...props} />}
       />
-      <Route path={'/produto/:id'} component={() => <Product {...props} />} />
+      <Route
+        path={'/produto/:id'}
+        component={() => <ProductPage {...props} />}
+      />
     </Switch>
   );
 };

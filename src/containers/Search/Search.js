@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 import MainRouter from '../../mainRouter/index';
 
 const Search = props => {
-  console.log(props, 'kkkkkk');
   const [term, setTerm] = useState('');
 
   const handleSubmit = e => {

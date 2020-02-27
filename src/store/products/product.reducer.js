@@ -1,16 +1,21 @@
-import { SEARCH_PRODUCTS } from './product.actions';
+import { SEARCH_PRODUCTS, SEARCH_PRODUCT_BY_ID } from './product.actions';
 
 const initialState = {
-  productsData: {}
+  productsData: {},
+  product: {}
 };
 
 const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_PRODUCTS:
-      console.log(state);
       return {
         ...state,
         productsData: action.productsData
+      };
+    case SEARCH_PRODUCT_BY_ID:
+      return {
+        ...state,
+        product: action.product
       };
 
     default:
