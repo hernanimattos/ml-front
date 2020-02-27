@@ -5,19 +5,19 @@ import ProductPage from '../containers/ProductPage/ProductPage';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 const MainNAvigation = props => {
-  const { productsData = {} } = props || {};
-  const { items = [] } = productsData;
+  const { productsData = {}, product = {} } = props || {};
+  // const { items = [] } = productsData;
 
   return (
     <Switch>
       <Route
         exact
         path={'/'}
-        component={() => <Products products={items} {...props} />}
+        component={() => <Products products={productsData} {...props} />}
       />
       <Route
         path={'/produto/:id'}
-        component={() => <ProductPage {...props} />}
+        component={() => <ProductPage product={product} {...props} />}
       />
     </Switch>
   );

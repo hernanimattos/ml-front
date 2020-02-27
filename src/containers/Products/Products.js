@@ -2,15 +2,16 @@ import React from 'react';
 import Product from '../../componets/Product/Product';
 
 const Products = props => {
-  console.log('products');
+  const { productsData } = props;
+  const { items } = productsData;
   return (
     <div>
-      {props.products &&
-        props.products.map(e => (
+      {items &&
+        items.map(e => (
           <Product
             key={e.id}
             id={e.id}
-            img={e.picture}
+            picture={e.picture}
             title={e.title}
             description={e.description}
             value={e.price.value}

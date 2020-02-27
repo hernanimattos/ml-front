@@ -1,4 +1,7 @@
-import { getProductsByTermSearch } from '../../services/product/product.service';
+import {
+  getProductsByTermSearch,
+  getProductById
+} from '../../services/product/product.service';
 export const SEARCH_PRODUCTS = 'SEARCH_PRODUCTS';
 export const SEARCH_PRODUCT_BY_ID = 'SEARCH_PRODUCT_BY_ID';
 
@@ -17,11 +20,14 @@ export const searchProduct = product => {
 
 export const searchProductById = id => {
   return dispatch => {
-    dispatch({
-      type: SEARCH_PRODUCT_BY_ID,
-      product: {
-        title: 'aqui esta voce safado'
-      }
+    return getProductById(id).then(response => {
+      const { data = {} } = response || {};
+      const { getProductById = {} } = data;
+
+      dispatch({
+        type: SEARCH_PRODUCT_BY_ID,
+        product: getProductById
+      });
     });
   };
 };

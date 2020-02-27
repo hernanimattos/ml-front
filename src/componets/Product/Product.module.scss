@@ -22,7 +22,6 @@
     }
   }
 
- 
   &:after {
     content: '';
     display: table;
@@ -30,9 +29,9 @@
   }
   .ContainerDetails {
     display: flex;
-     & > {
+    & > {
       flex: 1 1 1;
-     }
+    }
   }
   .ProductInformationTop {
     margin: 0 auto;
@@ -41,7 +40,7 @@
     }
     & > {
       flex: 1 1 1;
-     }
+    }
   }
   .AlignLeft {
     float: left;
@@ -53,5 +52,8 @@
     content: '';
     display: table;
     clear: both;
+  }
+  .CleanA {
+    text-decoration: none;
   }
 }

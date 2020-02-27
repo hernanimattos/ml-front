@@ -5,14 +5,17 @@ import Product from '../../componets/Product/Product';
 import { useParams } from 'react-router-dom';
 
 const ProductPage = props => {
-  const { dispatch, product } = props;
-  console.log(product, 'product by props', props);
+  const { dispatch, product = {} } = props || {};
+  const { item = {} } = product;
+  const { price, ...rest } = item;
+  const { value = null } = price || {};
+  const newProps = { ...price, ...item };
   let { id } = useParams();
   useEffect(() => {
     dispatch(searchProductById(id));
   }, []);
 
-  return <Product />;
+  return <Product {...newProps} disabledLink={true} />;
 };
 
 const mapStateToProps = state => {

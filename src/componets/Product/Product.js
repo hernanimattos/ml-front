@@ -3,9 +3,9 @@ import classes from './Product.module.scss';
 import { NavLink } from 'react-router-dom';
 
 const Product = props => {
-  console.log('product');
   return (
     <NavLink
+      disabled={props.disabledLink ? true : false}
       to={{
         pathname: `/produto/${props.id}`
       }}
@@ -13,7 +13,7 @@ const Product = props => {
     >
       <article className={classes.Product}>
         <div className={classes.ContainerImg}>
-          <img src={props.img} />
+          <img src={props.picture} />
         </div>
         <div className={classes.ContainerDetails}>
           <div className={classes.ProductInformationTop}>

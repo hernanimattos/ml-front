@@ -27,3 +27,26 @@ export const getProductsByTermSearch = term => {
     variables: { term }
   });
 };
+
+export const getProductById = id => {
+  return client.query({
+    query: gql`
+      query($id: String!) {
+        getProductById(id: $id) {
+          item {
+            id
+            title
+            price {
+              value
+            }
+            description
+            condition
+
+            picture
+          }
+        }
+      }
+    `,
+    variables: { id }
+  });
+};

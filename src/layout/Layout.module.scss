@@ -1,12 +1,19 @@
 .Container {
-    background-color: #ccc;
-  
-    .Row {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-bottom: 30px;
-        padding-top: 120px;
-    }
+  background-color: #ccc;
+
+  .Row {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 120px;
+  }
+  a[disabled] {
+    pointer-events: none;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
