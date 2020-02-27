@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
-import Products from '../../componets/Products/Products';
+// import Products from '../Products/Products';
 import Navigation from '../../componets/Navigation/Navigation';
 import { searchProduct } from '../../store/products/product.actions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import MainRouter from '../../mainRouter/index';
 
 const Search = props => {
+  console.log(props, 'kkkkkk');
   const [term, setTerm] = useState('');
-  const [searchInit, setSearchInit] = useState(null);
 
   const handleSubmit = e => {
     e.preventDefault();
-    setSearchInit(true);
+    props.dispatch(searchProduct(term));
     props.history.push('/');
-    props.dispatch(searchProduct(term, searchInit));
   };
 
   const handleTerm = e => {
-    setSearchInit(false);
     setTerm(e.target.value);
   };
 
@@ -31,9 +30,8 @@ const Search = props => {
 
 const mapStateToProps = state => {
   return {
-    productsData: state.productsData,
-    searchInit: state.searchInit
+    productsData: state.productsData
   };
 };
 
-export default connect(mapStateToProps)(Search);
+export default withRouter(connect(mapStateToProps, null)(Search));

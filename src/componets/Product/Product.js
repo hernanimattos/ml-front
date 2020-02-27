@@ -1,13 +1,15 @@
 import React from 'react';
 import classes from './Product.module.scss';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Product = props => {
+  console.log('product');
   return (
-    <Link
+    <NavLink
       to={{
         pathname: `/produto/${props.id}`
       }}
+      exact
     >
       <article className={classes.Product}>
         <div className={classes.ContainerImg}>
@@ -26,7 +28,7 @@ const Product = props => {
           </div>
         </div>
       </article>
-    </Link>
+    </NavLink>
   );
 };
 export default Product;

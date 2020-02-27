@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import classes from './Navigation.module.scss';
 import { connect } from 'react-redux';
-import Products from '../Products/Products';
+import Products from '../../containers/Products/Products';
 
 const Navigation = props => {
   return (

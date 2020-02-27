@@ -1,7 +1,8 @@
 import React from 'react';
-import Product from './Product/Product';
+import Product from '../../componets/Product/Product';
 
 const Products = props => {
+  console.log('products');
   return (
     <div>
       {props.products &&
