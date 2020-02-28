@@ -7,12 +7,12 @@ import { useParams } from 'react-router-dom';
 const ProductPage = props => {
   const { dispatch, product = {} } = props || {};
   const { item = {} } = product;
-  const { price, ...rest } = item;
-  const { value = null } = price || {};
+  const { price = 0 } = item;
   const newProps = { ...price, ...item };
   let { id } = useParams();
+
   useEffect(() => {
-    dispatch(searchProductById(id));
+    dispatch(searchProductById(id, true));
   }, []);
 
   return <Product {...newProps} disabledLink={true} />;
@@ -20,7 +20,8 @@ const ProductPage = props => {
 
 const mapStateToProps = state => {
   return {
-    product: state.product
+    product: state.product,
+    loader: state.loader
   };
 };
 

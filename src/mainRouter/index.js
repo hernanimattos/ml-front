@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Products from '../containers/Products/Products';
 import ProductPage from '../containers/ProductPage/ProductPage';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import Loader from '../UI/Loader/Loader';
 
 const MainNAvigation = props => {
   const { productsData = {}, product = {} } = props || {};
@@ -19,7 +18,6 @@ const MainNAvigation = props => {
         path={'/produto/:id'}
         component={() => <ProductPage product={product} {...props} />}
       />
-      <Loader />
     </Switch>
   );
 };
