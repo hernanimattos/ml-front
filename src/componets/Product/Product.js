@@ -9,7 +9,6 @@ const Product = props => {
       to={{
         pathname: `/produto/${props.id}`
       }}
-      exact
     >
       <article className={classes.Product}>
         <div className={classes.ContainerImg}>

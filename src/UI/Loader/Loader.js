@@ -9,7 +9,6 @@ const Loader = props => {
         <img src={loader} className={classes.LoaderImg} />
       </div>
     ) : null;
-    // );
   }
 };
 

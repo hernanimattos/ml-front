@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Su } from 'react';
 // import Products from '../Products/Products';
 import Navigation from '../../componets/Navigation/Navigation';
 import { searchProduct } from '../../store/products/product.actions';
@@ -8,15 +8,13 @@ import MainRouter from '../../mainRouter/index';
 import Loader from '../../UI/Loader/Loader';
 
 const Search = props => {
-  console.log(props, 'sear');
-
-  // const { }
   const [term, setTerm] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.dispatch(searchProduct(term, true));
+    if (!term) return;
     props.history.push('/');
+    props.dispatch(searchProduct(term, true));
   };
 
   const handleTerm = e => {
@@ -27,15 +25,14 @@ const Search = props => {
     <React.Fragment>
       <Navigation submit={handleSubmit} change={handleTerm} term={term} />
       <MainRouter {...props} />
-      <Loader show={props.loader} />
+      <Loader show={false} />
     </React.Fragment>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    productsData: state.productsData,
-    loader: state.loader
+    productsData: state.productsData
   };
 };
 

@@ -12,16 +12,15 @@ const ProductPage = props => {
   let { id } = useParams();
 
   useEffect(() => {
-    dispatch(searchProductById(id, true));
+    dispatch(searchProductById(id));
   }, []);
 
-  return <Product {...newProps} disabledLink={true} />;
+  return <Product {...newProps} />;
 };
 
 const mapStateToProps = state => {
   return {
-    product: state.product,
-    loader: state.loader
+    product: state.product
   };
 };
 

@@ -2,8 +2,7 @@ import { SEARCH_PRODUCTS, SEARCH_PRODUCT_BY_ID } from './product.actions';
 
 const initialState = {
   productsData: {},
-  product: {},
-  loader: false
+  product: {}
 };
 
 const productReducer = (state = initialState, action) => {
@@ -11,14 +10,12 @@ const productReducer = (state = initialState, action) => {
     case SEARCH_PRODUCTS:
       return {
         ...state,
-        productsData: action.productsData,
-        loader: action.loader
+        productsData: action.productsData
       };
     case SEARCH_PRODUCT_BY_ID:
       return {
         ...state,
-        product: action.product,
-        loader: action.loader
+        product: action.product
       };
 
     default:
