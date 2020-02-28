@@ -15,7 +15,7 @@ const ProductPage = props => {
     dispatch(searchProductById(id));
   }, []);
 
-  return <Product {...newProps} />;
+  return <Product {...newProps} disabledLink />;
 };
 
 const mapStateToProps = state => {

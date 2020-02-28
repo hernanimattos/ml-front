@@ -7,7 +7,7 @@ export const SEARCH_PRODUCT_BY_ID = 'SEARCH_PRODUCT_BY_ID';
 
 export const searchProduct = product => {
   return dispatch => {
-    getProductsByTermSearch(product).then(response => {
+    return getProductsByTermSearch(product).then(response => {
       const { data = {} } = response || {};
       const { searchProducts = {} } = data;
       dispatch({

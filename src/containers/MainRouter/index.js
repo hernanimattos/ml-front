@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Products from '../containers/Products/Products';
-import ProductPage from '../containers/ProductPage/ProductPage';
+import Products from '../Products/Products';
+import ProductPage from '../ProductPage/ProductPage';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
-const MainNAvigation = props => {
+const MainRouter = props => {
   const { productsData = {}, product = {} } = props || {};
+  console.log('Main router endee');
 
   return (
     <Switch>
@@ -16,10 +17,12 @@ const MainNAvigation = props => {
       />
       <Route
         path={'/produto/:id'}
-        component={() => <ProductPage product={product} {...props} />}
+        component={() => (
+          <ProductPage product={product} {...props} disabledLink={true} />
+        )}
       />
     </Switch>
   );
 };
 
-export default withRouter(connect(null, null)(MainNAvigation));
+export default withRouter(connect(null, null)(MainRouter));
