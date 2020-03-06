@@ -9,14 +9,16 @@ export const SEARCH_PRODUCTS_START = 'SEARCH_PRODUCTS_START';
 export const searchProduct = product => {
   return dispatch => {
     dispatch({
-      type: SEARCH_PRODUCTS_START
+      type: SEARCH_PRODUCTS_START,
+      loading: true
     });
     return getProductsByTermSearch(product).then(response => {
       const { data = {} } = response || {};
       const { searchProducts = {} } = data;
       dispatch({
         type: SEARCH_PRODUCTS,
-        productsData: searchProducts
+        productsData: searchProducts,
+        loading: false
       });
     });
   };
@@ -24,12 +26,17 @@ export const searchProduct = product => {
 
 export const searchProductById = id => {
   return dispatch => {
+    dispatch({
+      type: SEARCH_PRODUCTS_START,
+      loading: true
+    });
     return getProductById(id).then(response => {
       const { data = {} } = response || {};
       const { getProductById = {} } = data;
       dispatch({
         type: SEARCH_PRODUCT_BY_ID,
-        product: getProductById
+        product: getProductById,
+        loading: false
       });
     });
   };
