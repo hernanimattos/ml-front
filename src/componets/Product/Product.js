@@ -7,7 +7,10 @@ const Product = props => {
     <NavLink
       disabled={props.disabledLink ? true : false}
       to={{
-        pathname: `/produto/${props.id}`
+        pathname: `/produto?name=${props.id}`,
+        params: {
+          id: props.id
+        }
       }}
     >
       <article className={classes.Product}>
