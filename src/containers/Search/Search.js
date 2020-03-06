@@ -5,16 +5,17 @@ import {
   searchProduct,
   searchProductById
 } from '../../store/products/product.actions';
-import { finishLoad, startLoad } from '../../store/loader/loader.actions';
 import { connect, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import MainRouter from '../MainRouter/index';
 import Loader from '../../UI/Loader/Loader';
 
 const Search = props => {
+  console.log(props);
+  const { product } = props || {};
+  const { loading } = product;
   const dispatch = useDispatch();
   const [term, setTerm] = useState('');
-  const { loader = {} } = props || {};
 
   const { location = {} } = props || {};
   const { params = {} } = location;
@@ -22,10 +23,7 @@ const Search = props => {
 
   useEffect(() => {
     if (id) {
-      dispatch(startLoad());
-      dispatch(searchProductById(id)).then(() => {
-        dispatch(finishLoad());
-      });
+      dispatch(searchProductById(id));
     }
   }, [id]);
 
@@ -33,10 +31,7 @@ const Search = props => {
     e.preventDefault();
     if (!term) return;
     props.history.push('/');
-    dispatch(startLoad());
-    dispatch(searchProduct(term)).then(() => {
-      dispatch(finishLoad());
-    });
+    dispatch(searchProduct(term));
   };
 
   const handleTerm = e => {
@@ -47,7 +42,7 @@ const Search = props => {
     <React.Fragment>
       <Navigation submit={handleSubmit} change={handleTerm} term={term} />
       <MainRouter {...props} />
-      <Loader show={loader.loader} />
+      <Loader show={loading} />
     </React.Fragment>
   );
 };
