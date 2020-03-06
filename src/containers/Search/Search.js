@@ -11,7 +11,7 @@ import MainRouter from '../MainRouter/index';
 import Loader from '../../UI/Loader/Loader';
 
 const Search = props => {
-  console.log(props);
+  console.log(props, 'ssss');
   const { product } = props || {};
   const { loading } = product;
   const dispatch = useDispatch();
