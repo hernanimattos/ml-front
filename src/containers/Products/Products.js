@@ -2,8 +2,8 @@ import React from 'react';
 import Product from '../../componets/Product/Product';
 
 const Products = props => {
-  const { productsData = {} } = props || {};
-  const { items = [] } = productsData;
+  const { products = {} } = props || {};
+  const { items = [] } = products;
   return (
     <div>
       {items &&

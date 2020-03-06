@@ -2,7 +2,8 @@ import { SEARCH_PRODUCTS, SEARCH_PRODUCT_BY_ID } from './product.actions';
 
 const initialState = {
   productsData: {},
-  product: {}
+  product: {},
+  loading: false
 };
 
 const productReducer = (state = initialState, action) => {

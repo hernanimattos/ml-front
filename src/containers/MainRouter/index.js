@@ -5,8 +5,8 @@ import ProductPage from '../ProductPage/ProductPage';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 const MainRouter = props => {
-  const { productsData = {}, product = {} } = props || {};
-  console.log('Main router endee');
+  const { product = {} } = props || {};
+  const { productsData = {}, product: productResult = {} } = product || {};
 
   return (
     <Switch>
@@ -16,9 +16,13 @@ const MainRouter = props => {
         component={() => <Products products={productsData} {...props} />}
       />
       <Route
-        path={'/produto/:id'}
+        path={'/produto?name:id'}
         component={() => (
-          <ProductPage product={product} {...props} disabledLink={true} />
+          <ProductPage
+            productItem={productResult}
+            {...props}
+            disabledLink={true}
+          />
         )}
       />
     </Switch>
