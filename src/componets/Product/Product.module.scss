@@ -29,6 +29,7 @@
   }
   .ContainerDetails {
     display: flex;
+    word-break: break-word;
     & > {
       flex: 1 1 1;
     }
